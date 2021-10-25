@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        style="@style/BackButtonStyle"/>
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/forgot_password"/>
+
+    <EditText
+        android:id="@+id/forgot_password_email_et"
+        style="@style/EditTextStyle"
+        android:hint="abc@gmail.com"
+        android:layout_centerInParent="true"/>
+
+    <RelativeLayout
+        android:id="@+id/forgot_password_submit_btn"
+        android:layout_width="@dimen/_300dp"
+        android:layout_height="@dimen/_50dp"
+        android:background="@drawable/button_border"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_30dp"
+        android:layout_below="@+id/forgot_password_email_et">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sp"/>
+    </RelativeLayout>
+</RelativeLayout>
