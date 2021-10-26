@@ -2,6 +2,7 @@ package com.calculation.appknit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -10,7 +11,7 @@ import com.calculation.appknit.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var forgot_password_submit_btn: RelativeLayout
+    lateinit var forgot_password_submit_btn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             .setView(dialogView)
             .show()
 
-        val forgot_password_dialog_ok_btn = dialogView.findViewById<RelativeLayout>(R.id.forgot_password_dialog_ok_btn)
+        val forgot_password_dialog_ok_btn = dialogView.findViewById<Button>(R.id.forgot_password_dialog_ok_btn)
         forgot_password_dialog_ok_btn.setOnClickListener {
             customDialog.dismiss()
         }
