@@ -2,5 +2,16 @@
     <string name="app_name">AppKnit</string>
     <string name="forgot_password">Forgot Password</string>
     <string name="forgot_password_dialog_title">A Link to Reset your password has been sent to your registered email account.</string>
-    <string name="hintemail">abc@gmail.com</string>
+    <string name="hintemail">example@gmail.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hintpassword">**************</string>
+    <string name="hintEmailAddress">Email address</string>
+    <string name="password">Password</string>
+    <string name="hintForgotPassword">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="hintContinueasguest">Continue as guest</string>
+    <string name="hintContinuewithsocial">Continue with social login</string>
+    <string name="hintNotamember">Not a member?</string>
+    <string name="hintSignup">Sign up</string>
 </resources>
