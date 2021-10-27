@@ -16,20 +16,22 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <ImageView
+            android:id="@+id/imgSigninLogo"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.20"
+            app:layout_constraintHeight_percent="0.15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/btnBackSignin"
             android:src="@drawable/ic_logo"/>
 
         <TextView
             android:id="@+id/tvEmailAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/guideline7"
+            app:layout_constraintTop_toBottomOf="@+id/imgSigninLogo"
             app:layout_constraintStart_toEndOf="@+id/guideline8"
+            android:layout_marginTop="20dp"
             android:text="@string/hintEmailAddress"
             android:textColor="@color/black"
             android:textSize="20sp"/>
@@ -146,40 +148,30 @@
                 android:src="@drawable/ic_apple"/>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvNotaMember"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/llSocialMedia"
-            app:layout_constraintStart_toEndOf="@+id/guideline10"
-            android:layout_marginTop="20dp"
-            android:text="@string/hintNotamember"
-            android:textSize="20sp"/>
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintEnd_toEndOf="@+id/guideline9">
+            <TextView
+                android:id="@+id/tvNotaMember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/hintNotamember"
+                android:textSize="20sp"/>
 
-        <TextView
-            android:id="@+id/tvSignup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/llSocialMedia"
-            app:layout_constraintStart_toEndOf="@+id/tvNotaMember"
-            android:layout_marginTop="20dp"
-            android:text="@string/hintSignup"
-            android:textSize="20sp"
-            android:textColor="#FF0000"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline7"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25"/>
+            <TextView
+                android:id="@+id/tvSignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@+id/tvNotaMember"
+                android:layout_marginTop="20dp"
+                android:text="@string/hintSignup"
+                android:textSize="20sp"
+                android:textColor="#FF0000"/>
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
@@ -194,13 +186,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.95"/>
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline10"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.30"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

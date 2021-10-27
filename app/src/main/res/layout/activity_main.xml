@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
-            android:id="@+id/forgot_password_back_btn"
+            android:id="@+id/btnBackForgotPassword"
             style="@style/BackButtonStyle"
             app:layout_constraintStart_toEndOf="@+id/guideline1"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -31,7 +31,7 @@
             android:text="@string/forgot_password"/>
 
         <EditText
-            android:id="@+id/forgot_password_email_et"
+            android:id="@+id/etEmailForgotPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/hintemail"
@@ -46,13 +46,13 @@
             android:backgroundTint="@color/black"/>
 
         <Button
-            android:id="@+id/forgot_password_submit_btn"
+            android:id="@+id/btnSubmitForgotPassword"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:background="@drawable/button_border"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            app:layout_constraintTop_toBottomOf="@+id/forgot_password_email_et"
+            app:layout_constraintTop_toBottomOf="@+id/etEmailForgotPassword"
             app:layout_constraintStart_toEndOf="@+id/guideline1"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             android:layout_marginLeft="20dp"
