@@ -14,8 +14,6 @@ import com.calculation.appknit.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var forgot_password_submit_btn: Button
-    lateinit var layoutActivityMain: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,27 +22,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        forgot_password_submit_btn = binding.btnSubmitForgotPassword
-        forgot_password_submit_btn.setOnClickListener {
-            showCustomAlert()
-        }
-
-        layoutActivityMain = binding.layoutActivityMain
-    }
-
-    private fun showCustomAlert() {
-        val dialogView = layoutInflater.inflate(R.layout.forgot_password_dialogbox, null)
-        val customDialog = AlertDialog.Builder(this)
-            .setView(dialogView)
-            .show()
-
-        val forgot_password_dialog_ok_btn = dialogView.findViewById<Button>(R.id.forgot_password_dialog_ok_btn)
-        forgot_password_dialog_ok_btn.setOnClickListener {
-            customDialog.dismiss()
-
-            layoutActivityMain.visibility = View.GONE
-            var mainFragment: SigninFragment = SigninFragment()
-            supportFragmentManager.beginTransaction().add(R.id.container, mainFragment).commit()
-        }
+        var mainFragment = ForgotPasswordFragment()
+        supportFragmentManager.beginTransaction().add(R.id.container, mainFragment).commit()
     }
 }
