@@ -19,4 +19,9 @@
     <string name="hint_card_title">Marbre Stahy-Butts</string>
     <string name="hint_card_description">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text.</string>
     <string name="hint_comment_time">6hrs</string>
+
+    <string name="first_fragment">First Fragment</string>
+    <string name="second_fragment">Second Fragment</string>
+    <string name="hintComment">Leave your comment here...</string>
+    <string name="tabTitle">Business</string>
 </resources>

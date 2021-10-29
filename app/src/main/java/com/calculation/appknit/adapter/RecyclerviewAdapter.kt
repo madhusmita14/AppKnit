@@ -10,13 +10,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.calculation.appknit.R
 import com.calculation.appknit.model.ModelComment
 
-class RecyclerviewAdapter(private val commentList: List<ModelComment>): RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>() {
+class RecyclerviewAdapter: RecyclerView.Adapter<RecyclerviewAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val img: ImageView = itemView.findViewById(R.id.imgCommentIcon)
         val title: TextView = itemView.findViewById(R.id.tvCardTitle)
         val desc: TextView = itemView.findViewById(R.id.tvCardDesc)
         val time: TextView = itemView.findViewById(R.id.tvCardTime)
+
+        fun bind(){
+            itemView.apply {
+                img.setImageResource(R.drawable.ic_user_img)
+                title.text = "Yeshimabeit Milner"
+                desc.text = "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text."
+                time.text = "6 hrs"
+            }
+        }
     }
 
     override fun onCreateViewHolder(
@@ -29,13 +38,15 @@ class RecyclerviewAdapter(private val commentList: List<ModelComment>): Recycler
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model = commentList[position]
+//        val model = commentList[position]
+//
+//        holder.img.setImageResource(model.img)
+//        holder.title.text = model.title
 
-        holder.img.setImageResource(model.img)
-        holder.title.text = model.title
+        holder.bind()
     }
 
     override fun getItemCount(): Int {
-        return commentList.size
+        return 10
     }
 }

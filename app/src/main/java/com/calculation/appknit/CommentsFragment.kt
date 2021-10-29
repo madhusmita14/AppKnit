@@ -21,13 +21,8 @@ class CommentsFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView);
         recyclerView.layoutManager = LinearLayoutManager(context)
-        val data = ArrayList<ModelComment>()
 
-        for(i in 1..3){
-            data.add(ModelComment(R.drawable.ic_user_img,"Yeshimabeit Milner","Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text.","6 hrs"))
-        }
-
-        val adapter = RecyclerviewAdapter(data)
+        val adapter = RecyclerviewAdapter()
         recyclerView.adapter = adapter
 
         return view;

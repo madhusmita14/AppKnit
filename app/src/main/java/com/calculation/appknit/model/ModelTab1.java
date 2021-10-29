@@ -1,25 +1,35 @@
 package com.calculation.appknit.model;
 
-public class ModelComment {
-    int img;
-    String title,description,time;
+public class ModelTab1 {
 
-    public ModelComment() {
+    int banner,icon;
+    String title,phone,address;
+
+    public ModelTab1() {
     }
 
-    public ModelComment(int img, String title, String description, String time) {
-        this.img = img;
+    public ModelTab1(int banner, int icon, String title, String phone, String address) {
+        this.banner = banner;
+        this.icon = icon;
         this.title = title;
-        this.description = description;
-        this.time = time;
+        this.phone = phone;
+        this.address = address;
     }
 
-    public int getImg() {
-        return img;
+    public int getBanner() {
+        return banner;
     }
 
-    public void setImg(int img) {
-        this.img = img;
+    public void setBanner(int banner) {
+        this.banner = banner;
+    }
+
+    public int getIcon() {
+        return icon;
+    }
+
+    public void setIcon(int icon) {
+        this.icon = icon;
     }
 
     public String getTitle() {
@@ -30,19 +40,19 @@ public class ModelComment {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getTime() {
-        return time;
+    public String getAddress() {
+        return address;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
