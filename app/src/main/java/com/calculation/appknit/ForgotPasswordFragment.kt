@@ -116,6 +116,7 @@ class ForgotPasswordFragment : Fragment() {
                     return "text/html"
                 }
 
+
                 @Throws(AuthFailureError::class)
                 override fun getBody(): ByteArray? {
                     val params2 = HashMap<String, String>()
