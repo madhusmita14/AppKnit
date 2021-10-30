@@ -17,6 +17,7 @@ import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONException
@@ -31,7 +32,7 @@ class ForgotPasswordFragment : Fragment() {
     lateinit var tvTab: TextView
     lateinit var etEmailForgotPassword: EditText
 
-    var forgotPassword_URL = "http://54.224.217.172/development/api//user/resendVerification"
+    var forgotPassword_URL = "http://54.224.217.172/development/api/user/resendVerification"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,17 +41,16 @@ class ForgotPasswordFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_forgot_password, container, false)
 
-        forgot_password_submit_btn = view.findViewById(R.id.btnSubmitForgotPassword)
-        forgot_password_submit_btn.setOnClickListener {
-            //showCustomAlert()
-            forgotPasswordApi()
-        }
-
         layoutActivityMain = view.findViewById(R.id.layoutActivityMain)
         tvSignIn = view.findViewById(R.id.tvSignIn)
         tvComment = view.findViewById(R.id.tvComment)
         tvTab = view.findViewById(R.id.tvTab)
         etEmailForgotPassword  = view.findViewById(R.id.etEmailForgotPassword)
+
+        forgot_password_submit_btn = view.findViewById(R.id.btnSubmitForgotPassword)
+        forgot_password_submit_btn.setOnClickListener {
+            forgotPasswordApi()
+        }
 
         tvSignIn.setOnClickListener {
             val signinFragment = SigninFragment()
@@ -83,49 +83,39 @@ class ForgotPasswordFragment : Fragment() {
     }
 
     private fun forgotPasswordApi() {
-        var email_str = etEmailForgotPassword.text.toString()
-        val stringRequest =
-            object : StringRequest(
-                Request.Method.POST, forgotPassword_URL, Response.Listener<String>
-                { response ->
-                    try {
-                        val obj = JSONObject(response)
-                        var code = obj.getInt("code")
-                        var message = obj.getString("message")
-                        var format = obj.getString("format")
+        var email = etEmailForgotPassword.text.toString()
 
-                        //Toast.makeText(context,""+message,Toast.LENGTH_SHORT).show()
-                        Log.d("response",""+response)
+        val json = JSONObject()
+        json.put("email","gurlal.appknit@gmail.com")
+        json.put("requestType","2")
+        //json.put("userType","1")
 
-                    } catch (e: JSONException) {
-                        e.printStackTrace()
+        val request = JsonObjectRequest(
+            Request.Method.POST, forgotPassword_URL, json, { response ->
+
+                try {
+                    val obj = response
+
+                    var code = obj.getInt("code")
+                    val message = obj.getString("message")
+                    val format = obj.getString("format")
+
+                    Log.d("response",""+response)
+
+                    if(code == 100){
+                        showCustomAlert()
                     }
-                },
-                object : Response.ErrorListener {
-                    override fun onErrorResponse(error: VolleyError?) {
-                        Log.d("message",""+error?.message)
-                    }
 
-                })
-            {
-                override fun getParams(): MutableMap<String, String> {
-                    return params
+                } catch (e: JSONException) {
+                    e.printStackTrace()
                 }
+            }, { error ->
 
-                override fun getBodyContentType(): String {
-                    return "text/html"
-                }
-
-                @Throws(AuthFailureError::class)
-                override fun getBody(): ByteArray? {
-                    val params2 = HashMap<String, String>()
-                    params2.put("email","nandita.appknit@gmail.com")
-                    params2.put("requestType","1")
-                    params2.put("userType","1")
-                    return JSONObject(params2 as Map<*, *>).toString().toByteArray()
-                }
             }
+        )
 
-        Volley.newRequestQueue(context).add(stringRequest)
+        // add to request queue
+        Volley.newRequestQueue(context).add(request)
+
     }
 }
